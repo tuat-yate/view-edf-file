@@ -100,7 +100,7 @@ data.plot()
 plt.show()
 ```
 output:
-![fig1](./fig1.png)
+![fig1](./img/fig1.png)
 ### Step5 波形のロード
 波形の`ndarray`は[get_data](https://mne.tools/dev/generated/mne.io.Raw.html#mne.io.Raw.get_data)で取得することができます。波形の`ndarray`は(チャンネル数,サンプリング数)の形になっています。特定の列のみ抽出したいとき、例えば0~1(s)の波形のみ抽出したい場合、`data_eeg[:,:int(data.info['sfreq'])].shape` のように`ndarray`のスライスを使って表現することができます。`get_data`メソッドのoptionで開始/終了時刻を指定することができますが、一括でデータを確保して、必要なもののみスライスで取り出していくほうが(多分)高速です。  
 input:
@@ -164,7 +164,7 @@ print(data_eeg.sum(axis=1))
 ```
 output:  
 下のような画像が`../img/ (file name) / (file name)-(枚目).jpg`に測定時間分の枚数生成されます。(`../img/ (file name)`のディレクトリは予め作成しておいて下さい。)  
-![fig2](./fig2.jpg)
+![fig2](./img/fig2.jpg)
 
 #### (2) 画素の配列を保存  
 画像の画素値を`numpy`配列として保存する場合は、matplotlibの[canvas.renderer.buffer_rgba](https://matplotlib.org/3.2.2/gallery/misc/agg_buffer_to_array.html)を用いて画素を配列として保存します。`im`として返される`ndarray`は`(300,300,4)`の形です。4番目の要素は透明度を表すので、1~3番目のみスライスして抽出しています。
@@ -207,4 +207,4 @@ output:
 
 次のような画像が表示されます。正しく画素の値が`ndarray`に変換できているのがわかるかと思います。
 
-![fig3](/home/yate-sail/sail-summer/SAIL2020-1/markdown/fig3.jpg)
+![fig3](/img/fig3.jpg)
